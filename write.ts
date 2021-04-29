@@ -25,7 +25,7 @@ export class Write {
             console.log(`OOps something went wrong! Unable to write Todo Object`);
          };   
 
-
+         //write the new list into the file
          try{
             for (let i = 0; i < todoS.getListLength(); i++) {
                 if(i === 0){

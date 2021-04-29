@@ -6,7 +6,7 @@ const path: string = 'list.txt';
 
 export class Write {
 
-    public writeMyList(inputText:string){
+    public writeMyList(inputText:string): void {
         try{
             fsync.writeFileSync(path,`\n${inputText}`, {flag: 'a'});
         } catch{

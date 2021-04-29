@@ -5,7 +5,7 @@ const path: string = 'list.txt';
 
 
 export class Read {
-    public readMyList(){
+    public readMyList(): void {
         try{
             console.log(fsync.readFileSync(path, 'utf-8'));
         } catch(error){

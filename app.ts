@@ -11,8 +11,14 @@ const userManual = fs.readFileSync('userManual.txt', 'utf-8');
 if (cliArguments[2] === undefined) {
     console.log(userManual);
 
-// List items    
-  } else if (cliArguments[2] === '-l') {
+
+  } else if(cliArguments[2] !== ('-l' || '-a' || '-r' || '-c')) {
+    console.log('Unsupported argument, you can read the User Manual below');
+    console.log('');
+    console.log(userManual);
+  }
+// List items      
+  else if (cliArguments[2] === '-l') {
     let read: Read = new Read();
     read.readMyList();
 // Add item    

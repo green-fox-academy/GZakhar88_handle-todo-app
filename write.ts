@@ -1,26 +1,40 @@
 'use strict';
+import { todoItem } from './item';
+import { Read } from './read';
+import { Todos } from './todos';
 
+let read: Read = new Read();
+let todoS: Todos = read.readMyList();
+//console.log(todoS);
 
-const fsync = require('fs');
+const fs = require('fs');
 const path: string = 'list.txt';
 
 
 export class Write {
 
 
-    public writeMyList(inputText:string): void {
-        
-        let listFromFile: string = fsync.readFileSync(path, 'utf-8');
-        let listInArray: string[] = listFromFile.split('\n');
+    public AddItemToList(inputText:string): void {
 
+        let length = todoS.getListLength();
+        
+        //Add To-Do item at the and of the list
         try{
-            if(listFromFile.length === 0){
-                fsync.writeFileSync(path,`1 - [ ] ${inputText}`);
-            } else {
-                fsync.writeFileSync(path,`\n${listInArray.length+1} - [ ] ${inputText}`, {flag: 'a'});
-            };
-            
+            todoS.addTodo(new todoItem(length+1,' ',inputText));
         } catch{
+            console.log(`OOps something went wrong! Unable to write Todo Object`);
+         };   
+
+
+         try{
+            for (let i = 0; i < todoS.getListLength(); i++) {
+                if(i === 0){
+                   fs.writeFileSync(path, `${todoS.getSingleTodo(i).getNumber()} - [${todoS.getSingleTodo(i).getComplete()}] ${todoS.getSingleTodo(i).getText()}`);
+                } else {
+                   fs.writeFileSync(path, `\n${todoS.getSingleTodo(i).getNumber()} - [${todoS.getSingleTodo(i).getComplete()}] ${todoS.getSingleTodo(i).getText()}`, {flag: 'a'});
+                };
+            };
+         } catch {
             console.log(`OOps something went wrong! Unable to write file: list.txt! Check if it is exist!`);
          };   
     };

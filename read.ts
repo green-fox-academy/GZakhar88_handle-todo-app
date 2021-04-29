@@ -22,7 +22,8 @@ export class Read {
                 let myTodoItem: todoItem = new todoItem(number,sign,text);
                 myTodos.addTodo(myTodoItem);
             };
-            console.log(myTodos);
+            //console.log(myTodos);
+            return myTodos;
         } catch {
             console.log('Unable to read list. Check if it is exist!');
         };

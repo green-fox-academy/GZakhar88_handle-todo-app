@@ -10,13 +10,21 @@ export class Todos {
         this._TodoS = todos;
     };
 
+    public getListLength(): number {
+        return this._TodoS.length;
+    };
+
+    public getSingleTodo(input: number){
+        return this._TodoS[input];
+    };
+
     public getTodos(){
         return this._TodoS;
     };
 
 
     public addTodo(todo: todoItem){
-        return this._TodoS.push(todo);
+        this._TodoS.push(todo);
     };
 
 };

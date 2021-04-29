@@ -12,8 +12,11 @@ const path: string = 'list.txt';
 
 
 //Read from file every item
-let read: Read = new Read();
-read.readMyList();
+/* let read: Read = new Read();
+let list = read.readMyList();
+
+let number = list.getSingleTodo(0).getNumber();
+console.log(number); */
 
 
 
@@ -31,7 +34,7 @@ if (cliArguments[2] === undefined) {
         console.log('Unable to add: no task provided');
     } else {
         let myWrite: Write = new Write();
-        myWrite.writeMyList(cliArguments[3]);
+        myWrite.AddItemToList(cliArguments[3]);
     }
 // Remove item    
   } else if (cliArguments[2] === '-r'){

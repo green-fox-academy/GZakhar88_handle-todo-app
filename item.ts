@@ -25,21 +25,13 @@ export class todoItem {
 
         public setNumber(input: number){
             this._Number = input;
-        }
+        };
 
         public setComplete(){
             this._Complete = 'x';
-        }
+        };
 
         public setText(input: string){
             this._Text = input;
         };
-
 };
-
-/* let mytodo = [{number:1, complete: false, text: 'teszt szoveg'}];
-let mytodo2 = [{number:2, complete: false, text: 'teszt szoveg2'}];
-let todoArray: todoItem[] = [];
-todoArray.push({number:1, complete: false, text: 'teszt szoveg'});
-todoArray.push({number:2, complete: false, text: 'teszt szoveg2'});
-console.log(todoArray); */

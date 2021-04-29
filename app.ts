@@ -2,8 +2,7 @@
 import { Read } from './read';
 import { Write } from './write';
 import { Remove } from './remove'; 
-import { todoItem } from './item';
-import { Todos } from './todos';
+
 
 const cliArguments = process.argv;
 const fs = require('fs');
@@ -13,22 +12,8 @@ const path: string = 'list.txt';
 
 
 //Read from file every item
-let myTodos: Todos = new Todos();
-
-let listFromFile: string = fs.readFileSync(path, 'utf-8');
-let listInArray: string[] = listFromFile.split('\n');
-
-for(let i = 0; i < listInArray.length; i++){
-  let number: number = parseInt(listInArray[i].charAt(0));
-  let sign: string = listInArray[i].charAt(5);
-  let text: string = listInArray[i].slice(8);
-  let myTodoItem: todoItem = new todoItem(number,sign,text);
-  myTodos.addTodo(myTodoItem);
-};
-
-console.log(myTodos);
-
-
+let read: Read = new Read();
+read.readMyList();
 
 
 
@@ -39,7 +24,7 @@ if (cliArguments[2] === undefined) {
 // List items      
   else if (cliArguments[2] === '-l') {
     let read: Read = new Read();
-    read.readMyList();
+    read.printMylist();
 // Add item    
   } else if (cliArguments[2] === '-a'){
     if(cliArguments[3] === undefined){

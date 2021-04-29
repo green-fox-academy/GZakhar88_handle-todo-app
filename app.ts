@@ -7,21 +7,26 @@ const cliArguments = process.argv;
 const fs = require('fs');
 const userManual = fs.readFileSync('userManual.txt', 'utf-8');
 
+//User Manual
 if (cliArguments[2] === undefined) {
     console.log(userManual);
+
+// List items    
   } else if (cliArguments[2] === '-l') {
     let read: Read = new Read();
     read.readMyList();
+// Add item    
   } else if (cliArguments[2] === '-a'){
     if(cliArguments[3] === undefined){
-        console.log('Oops Something went wrong, maybe you forgot write the next todo');
+        console.log('Unable to add: no task provided');
     } else {
         let myWrite: Write = new Write();
         myWrite.writeMyList(cliArguments[3]);
     }
+// Remove item    
   } else if (cliArguments[2] === '-r'){
     if(cliArguments[3] === undefined){
-      console.log('Please select a valid item from the list and try again!');
+      console.log('Unable to remove: no index provided');
     } else {
       let myRemove: Remove = new Remove();
       myRemove.removeAnItem(cliArguments[3]);

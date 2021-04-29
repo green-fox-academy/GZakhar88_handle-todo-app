@@ -14,6 +14,10 @@ if (cliArguments[2] === undefined) {
     let read: Read = new Read();
     read.readMyList();
   } else if (cliArguments[2] === '-a'){
-    let myWrite: Write = new Write();
-    myWrite.writeMyList(cliArguments[3]);
+    if(cliArguments[3] === undefined){
+        console.log('Oops Something went wrong, maybe you forgot write the next todo');
+    } else {
+        let myWrite: Write = new Write();
+        myWrite.writeMyList(cliArguments[3]);
+    }
   };

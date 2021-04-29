@@ -7,18 +7,20 @@ export class Remove {
     
     public removeAnItem(stringInput: string): void {
         
-        let input: number = parseInt(stringInput);
-
+        let parsedInput: number = parseInt(stringInput);
+        
         try {
             let listFromFile: string = fsync.readFileSync(path, 'utf-8');
             let listInArray: string[] = listFromFile.split('\n');
 
-            if (listInArray.length < input) {
+            if(isNaN(parsedInput)){
+                console.log('Unable to remove: index is not a number');
+            }else if (listInArray.length < parsedInput) {
                 console.log('Unable to remove: index is out of bound');
             } else {
-                
-                let removedItem: string = listInArray[input-1];
-                listInArray.splice(input-1,1);
+
+                let removedItem: string = listInArray[parsedInput-1];
+                listInArray.splice(parsedInput-1,1);
 
                 for(let i = 0; i < listInArray.length; i++){
                     if(i === 0){

@@ -1,6 +1,14 @@
 'use strict';
 
-const cliArgument = process.argv;
+const cliArguments = process.argv;
 const fs = require('fs');
 const userManual = fs.readFileSync('userManual.txt', 'utf-8');
-console.log(userManual);
+
+
+if (cliArguments[2] === undefined) {
+    console.log(userManual);
+  } /* if else() {
+
+
+
+  } */

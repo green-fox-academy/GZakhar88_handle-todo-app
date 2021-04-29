@@ -16,5 +16,5 @@ export class ReadList {
 };
 
 
-let read: ReadList = new ReadList();
-read.readMyList();
+/* let read: ReadList = new ReadList();
+read.readMyList(); */

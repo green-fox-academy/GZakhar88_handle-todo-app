@@ -10,12 +10,6 @@ const userManual = fs.readFileSync('userManual.txt', 'utf-8');
 //User Manual
 if (cliArguments[2] === undefined) {
     console.log(userManual);
-
-
-  } else if(cliArguments[2] !== ('-l' || '-a' || '-r' || '-c')) {
-    console.log('Unsupported argument, you can read the User Manual below');
-    console.log('');
-    console.log(userManual);
   }
 // List items      
   else if (cliArguments[2] === '-l') {
@@ -37,4 +31,9 @@ if (cliArguments[2] === undefined) {
       let myRemove: Remove = new Remove();
       myRemove.removeAnItem(cliArguments[3]);
     };
+  } else {
+    // Unsupported argument
+    console.log('Unsupported argument, you can read the User Manual below');
+    console.log('');
+    console.log(userManual);
   };

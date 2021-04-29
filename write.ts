@@ -6,14 +6,17 @@ const path: string = 'list.txt';
 
 export class Write {
 
+
     public writeMyList(inputText:string): void {
+        
         let listFromFile: string = fsync.readFileSync(path, 'utf-8');
+        let listInArray: string[] = listFromFile.split('\n');
 
         try{
             if(listFromFile.length === 0){
-                fsync.writeFileSync(path,inputText);
+                fsync.writeFileSync(path,`1 - [ ] ${inputText}`);
             } else {
-                fsync.writeFileSync(path,`\n${inputText}`, {flag: 'a'});
+                fsync.writeFileSync(path,`\n${listInArray.length+1} - [ ] ${inputText}`, {flag: 'a'});
             };
             
         } catch{
@@ -21,7 +24,3 @@ export class Write {
          };   
     };
 };
-
-
-/* let myWrite: Write = new Write();
-myWrite.writeMyList('Otodil Sor'); */

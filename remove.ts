@@ -1,5 +1,4 @@
 'use strict';
-import { todoItem } from './item';
 import { Read } from './read';
 import { Todos } from './todos';
 
@@ -10,16 +9,15 @@ const fs = require('fs');
 const path: string = 'list.txt';
 
 export class Remove {
+
     public removeAnItem(stringInput: string): void {
         let selectedItemIndex: number = (parseInt(stringInput)-1);
-        
-        try {
-            let listFromFile: string = fs.readFileSync(path, 'utf-8');
-            let listInArray: string[] = listFromFile.split('\n');
-            
+        let length = todoS.getListLength();
+
+        try {    
             if(isNaN(selectedItemIndex)){
                 console.log('\x1b[31m','\x1b[43m','Unable to remove: index is not a number');
-            }else if (listInArray.length < selectedItemIndex) {
+            }else if (length < selectedItemIndex) {
                 console.log('\x1b[31m','\x1b[43m','Unable to remove: index is out of bound');
             } else {
                 // delete the item

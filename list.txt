@@ -1,3 +1,2 @@
-1 - [ ] Walk the dog
-2 - [ ] sdfhsdf
-3 - [ ] Teszta
+1 - [x] Walk the dog
+2 - [x] Teszta

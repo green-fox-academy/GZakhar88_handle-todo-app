@@ -22,9 +22,12 @@ export class Todos {
         return this._TodoS;
     };
 
-
     public addTodo(todo: todoItem){
         this._TodoS.push(todo);
     };
+
+    public removeTodo(input: number){
+        return this._TodoS.splice(input,1);
+    }
 
 };

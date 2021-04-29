@@ -24,7 +24,7 @@ export class todoItem {
         };
 
         public setNumber(input: number){
-            this._Number = input;
+            return this._Number = input;
         };
 
         public setComplete(){

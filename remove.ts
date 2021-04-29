@@ -8,15 +8,15 @@ export class Remove {
     public removeAnItem(stringInput: string): void {
         
         let parsedInput: number = parseInt(stringInput);
-        
+
         try {
             let listFromFile: string = fsync.readFileSync(path, 'utf-8');
             let listInArray: string[] = listFromFile.split('\n');
 
             if(isNaN(parsedInput)){
-                console.log('Unable to remove: index is not a number');
+                console.log('\x1b[31m','\x1b[43m','Unable to remove: index is not a number');
             }else if (listInArray.length < parsedInput) {
-                console.log('Unable to remove: index is out of bound');
+                console.log('\x1b[31m','\x1b[43m','Unable to remove: index is out of bound');
             } else {
 
                 let removedItem: string = listInArray[parsedInput-1];

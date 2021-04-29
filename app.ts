@@ -2,10 +2,13 @@
 import { Read } from './read';
 import { Write } from './write';
 import { Remove } from './remove'; 
+import { todoItem } from './item';
+import { Todos } from './todos';
 
 const cliArguments = process.argv;
 const fs = require('fs');
 const userManual = fs.readFileSync('userManual.txt', 'utf-8');
+let todoArray: todoItem[] = [];
 
 //User Manual
 if (cliArguments[2] === undefined) {

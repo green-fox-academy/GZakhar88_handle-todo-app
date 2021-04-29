@@ -2,12 +2,12 @@
 
 export class todoItem {
         private _Number: number;
-        private _Complete: boolean;
+        private _Complete: string;
         private _Text: string;
 
-        constructor(number: number, complete: boolean, text: string){
+        constructor(number: number, complete: string, text: string){
             this._Number = number;
-            this._Complete = complete || false;
+            this._Complete = complete || ' ';
             this._Text = text || '';
         };
 
@@ -28,8 +28,12 @@ export class todoItem {
         }
 
         public setComplete(){
-            this._Complete = true;
+            this._Complete = 'x';
         }
+
+        public setText(input: string){
+            this._Text = input;
+        };
 
 };
 

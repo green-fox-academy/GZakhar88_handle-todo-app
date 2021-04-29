@@ -1,2 +1,5 @@
-1 - [x] Walk the dog
-2 - [x] Teszta
+1 - [x] muuuukodik
+2 - [x] hehehe
+3 - [ ] cooool
+4 - [ ] elvigyen a tel
+5 - [x] nem hagyom
